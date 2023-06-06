@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Import fontawesome icons kit -->
+    <script src="https://kit.fontawesome.com/243f4836d3.js" crossorigin="anonymous"></script>
+    <!-- Import Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Add font family -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Qwigley&display=swap" rel="stylesheet">
+
+    <title>Expense Tracker</title>
+</head>
+
+<body>
+
+    <!-- Create a menu bar -->
+    <div class="menu-bar">
+        <!-- 1. Header -->
+        <div class="header">
+            <h1>Expense Tracker</h1>
+        </div>
+        <ul>
+            <!-- Add home icon-->
+            <li><a href="#"><i class="fas fa-home"></i></a>Dashboard</li>
+            <!-- Add wallet icon -->
+            <li><a href="#"><i class="fas fa-wallet"></i></a>Payments</li>
+            <!-- Add receipt icon -->
+            <li><a href="#"><i class="fas fa-receipt"></i></a>Invoice</li>
+            <!-- Add user icon -->
+            <li><a href="#"><i class="fas fa-user"></i></a>Manage Accounts</li>
+            <!-- Add settings icon -->
+            <li><a href="#"><i class="fas fa-cog"></i></a>Settings</li>
+        </ul>
+    </div>
+
+
+    <!-- Create a navigation bar with name dashboard, 3 icons and name of account holder -->
+    <div class="nav-bar spc-btw">
+        <div class="dashboard">
+            <h2>Dashboard</h2>
+        </div>
+
+        <div class="icons spc-btw">
+            <!-- Use fontawesome icons not images -->
+            <i class="fas fa-search fa-lg"></i>
+            <i class="fas fa-bell fa-lg"></i>
+            <div class="user spc-btw">
+                <i class="fas fa-user-circle fa-xl"></i>
+                <!-- Add name of logined user -->
+                <span>John Doe</span>
+                <!-- Add a down arrow icon -->
+                <i class="fas fa-chevron-down fa-xs"></i>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <!-- Create 4 divisions -->
+        <div class="container-small spc-btw">
+            <!-- 2. Balance -->
+            <div id="curr-bal" class="amount-deco cntr">
+                <!-- Add wallet logo -->
+                <div id="balance-deco" class="icon-box cntr"><i class="fas fa-wallet"></i></div>
+                <div class="vert"><h4> Total Balance</h4>
+                <h2 id="balance">$0.00</h2></div>
+            </div>
+
+            <!-- 3. Income -->
+            <div id="income" class="amount-deco cntr">
+                <div class="icon-box cntr"><i class="fas fa-wallet"></i></div>
+                <div class="vert"><h4>Income</h4>
+                <h2 id="money-plus">$0.00</h2>
+            </div>
+            </div>
+
+            <!-- 4. Expense -->
+            <div id="expense" class="amount-deco cntr">
+                <div class="icon-box cntr"><i class="fas fa-wallet"></i></div>
+                <div class="vert"><h4>Expense</h4>
+                <h2 id="money-minus">$0.00</h2>
+            </div>
+            </div>
+        </div>
+
+        <!-- Add a graph to show income and expense fluctuations -->
+        <div class="graph bdr">
+            <!-- Make header for graph and denote color and property -->
+            <h2>Income vs Expense</h2>
+            <canvas id="myChart"></canvas>
+
+        </div>
+
+        <!-- 5. Transaction History -->
+        <div class="transaction-history bdr">
+            <h2>Transaction History</h2>
+            <ul id="list" class="transaction-list"></ul>
+        </div>
+    </div>
+
+    <!-- 6. Add Transaction -->
+    <div class="right-container">
+        <div class="add-transaction bdr vert">
+            <h2>Add Transaction</h2>
+            <form id="form">
+                <label for="text">Text</label>
+                <input type="text" id="text" class="bdr" placeholder="Enter Text" />
+                <!-- Add a drop down to choose expense or income -->
+                <div class="spc-btw">
+                    <label for="transaction-type">Transaction Type:</label>
+                    <select id="dropdown" class="bdr">
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" class="bdr" placeholder="Enter Amount" />
+                <button class="btn bdr">Add Transaction</button>
+            </form>
+        </div>
+
+        <!-- Scheduled Transactions -->
+        <div class="scheduled-transactions bdr">
+            <h2>Scheduled Transfers</h2>
+            <ul class="scheduled-list">
+                <li>
+                    <span>Salary</span>
+                    <span>$500</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Import js file -->
+    <script src="add-money.js"></script>
+
+</body>
+
+</html>
